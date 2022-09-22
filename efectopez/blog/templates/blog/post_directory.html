@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<h2>Blog directory</h2>
+
+<div class="container">
+    {% for post in posts %}
+        <div class='card'>
+            <h2>{{ post['title'] }}</h2>
+            <p>{{ post['created'] }} - {{ post['content'] }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
