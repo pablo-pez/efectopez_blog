@@ -28,11 +28,11 @@ def get_directory():
 @blog.route('/<postname>')
 def get_post(postname: str):
     try:
-        html, meta = markdown_to_html(post_name=postname)
+        html, meta = markdown_to_html(f'blog_content/{postname}/content.md')
         context = {
-            # "post_title": meta['title'][0],
-            # "post_author": meta['authors'][0],
-            # "post_date": meta['date'][0],
+            "post_title": meta['title'][0],
+            "post_author": meta['authors'][0],
+            "post_date": meta['date'][0],
             "post_content": html
         }
         return render_template("post.html", **context)
